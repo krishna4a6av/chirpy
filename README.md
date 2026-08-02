@@ -50,39 +50,22 @@ POLKA_KEY=your_polka_api_key
 PLATFORM=dev
 ```
 
-## Running
-
-Install dependencies:
-
-```bash
-go mod tidy
-```
-
-Run database migrations:
-
-```bash
-goose postgres "$DB_URL" up
-```
-
-Generate SQLC code:
-
-```bash
-sqlc generate
-```
-
-Start the server:
-
-```bash
-go run .
-```
-
-The API runs on:
-
-```
-http://localhost:8080
-```
-
 ## API Endpoints
+
+| Method | Endpoint           | Description                                   |
+| ------ | ------------------ | --------------------------------------------- |
+| POST   | `/api/users`       | Register a user                               |
+| PUT    | `/api/users`       | Update authenticated user                     |
+| POST   | `/api/login`       | Login and receive access/refresh tokens       |
+| POST   | `/api/refresh`     | Refresh access token                          |
+| POST   | `/api/revoke`      | Revoke refresh token                          |
+| GET    | `/api/chirps`      | List chirps (supports `author_id` and `sort`) |
+| GET    | `/api/chirps/{id}` | Get a chirp                                   |
+| POST   | `/api/chirps`      | Create a chirp                                |
+| DELETE | `/api/chirps/{id}` | Delete your own chirp                         |
+| POST   | `/polka/webhooks`  | Upgrade user to Chirpy Red                    |
+| GET    | `/api/healthz`     | Health check                                  |
+
 
 ### Authentication
 
@@ -124,7 +107,6 @@ This project was built to practice:
 
 
 
-* Also
+# Also
 - Followed from Boot.dev course
-
 - I do not have a boot.dev membership so I couldn't access the editorials on the site. Hence the code is boud to deviate from the "ideal" sloutions.

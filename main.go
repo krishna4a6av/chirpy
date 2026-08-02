@@ -184,7 +184,7 @@ func (cfg *apiConfig) userUpdateHandler(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
-	if respondWithJSON(w, http.StatusOK, UserResponse{
+	if err = respondWithJSON(w, http.StatusOK, UserResponse{
 		ID:          user.ID,
 		CreatedAt:   user.CreatedAt,
 		UpdatedAt:   user.UpdatedAt,
